@@ -148,7 +148,7 @@ export default function BrowsePage() {
       <Navbar />
       <div className="bg-black relative h-screen">
         <Billboard />
-        <div className="absolute bottom-0 w-full z-10">
+        <div className="absolute bottom-0 w-full z-auto">
           <MovieRow title="Popular on Netflix" movies={movies} />
         </div>
       </div>
