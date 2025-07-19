@@ -1,14 +1,15 @@
 import React from 'react';
 
-interface AccountManuProps {
+interface AccountMenuProps {
     visible?: boolean;
 }
 const handleSignOut = () => {
-    localStorage.removeItem('token');
-    window.location.href = '/login';
+    // localStorage.removeItem('token');
+    // window.location.href = '/login';
+    console.log("Sign out")
 };
 
-const AccountManu: React.FC<AccountManuProps> = ({ visible }) => {
+const AccountMenu: React.FC<AccountMenuProps> = ({ visible }) => {
     if (!visible) {
         return null;
     }
@@ -20,12 +21,12 @@ const AccountManu: React.FC<AccountManuProps> = ({ visible }) => {
                     <p className='text-white text-sm group-hover/item:underline'>Profile</p>
                 </div>
                 <hr className='bg-gray-600 border-0 h-px my-4' />
-                <div  onClick={handleSignOut} className='px-3 text-center text-white hover:underline'>
-                   Sign out of Netflix
+                <div onClick={handleSignOut} className='px-3 text-center text-white hover:underline'>
+                    Sign out
                 </div>
             </div>
         </div>
     )
 }
 
-export default AccountManu;
+export default AccountMenu;
