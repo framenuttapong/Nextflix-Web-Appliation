@@ -1,15 +1,15 @@
-import React from 'react';
+import { useUser } from '@/hooks/useUser';
 
 interface AccountMenuProps {
     visible?: boolean;
 }
 const handleSignOut = () => {
-    // localStorage.removeItem('token');
-    // window.location.href = '/login';
-    console.log("Sign out")
+    localStorage.removeItem('token');
+    window.location.href = '/login';
 };
 
-const AccountMenu: React.FC<AccountMenuProps> = ({ visible }) => {
+const AccountMenu = ({ visible }: AccountMenuProps) => { 
+    const { user, loading } = useUser();
     if (!visible) {
         return null;
     }
@@ -18,7 +18,7 @@ const AccountMenu: React.FC<AccountMenuProps> = ({ visible }) => {
             <div className='flex flex-col gap-3'>
                 <div className='px-3 group/item flex flex-row gap-3 items-center w-full'>
                     <img src="/images/Netflix-avatar.png" alt="Profile" className='w-8 h-8 rounded-md' />
-                    <p className='text-white text-sm group-hover/item:underline'>Profile</p>
+                    <p className='text-white text-sm group-hover/item:underline'>{user.user?.name}</p>
                 </div>
                 <hr className='bg-gray-600 border-0 h-px my-4' />
                 <div onClick={handleSignOut} className='px-3 text-center text-white hover:underline'>
