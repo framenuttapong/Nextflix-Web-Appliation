@@ -10,6 +10,7 @@ import { ConfigModule } from '@nestjs/config';
   imports: [AuthModule, UsersModule, MoviesModule,
     ConfigModule.forRoot({
       isGlobal: true,
+      envFilePath: '.env',
     })],
   controllers: [AppController],
   providers: [AppService],
