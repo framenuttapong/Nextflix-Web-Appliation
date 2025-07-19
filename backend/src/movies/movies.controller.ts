@@ -16,4 +16,9 @@ export class MoviesController {
     findById(@Param('id', ParseIntPipe) id: number) {
         return this.moviesService.findById(id);
     }
+
+    @Get(':id/video')
+    getMovieVideo(@Param('id', ParseIntPipe) id: number) {
+        return this.moviesService.getMovieVideo(id);
+    }
 }
