@@ -77,11 +77,12 @@ npm run dev
 
 ## 📺 ฟีเจอร์ปัจจุบัน
 
+- Click -> [Nextflix-Web-Application](https://nextflix-web-appliation-iota.vercel.app/)
 - ✅ หน้า Home + Billboard video (Auto-play)
 - ✅ ดึงข้อมูลภาพยนตร์จาก TMDB ผ่าน Backend
 - ✅ แสดงวิดีโอผ่าน YouTube embed
 - ✅ UI คล้าย Netflix: Navbar, เมนู, responsive design
-- 🚫 ไม่มีระบบ login/signup (เลือกไม่ใช้)
+- 🚫 ไม่มีระบบ login/signup
 
 ---
 
