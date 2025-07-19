@@ -2,9 +2,15 @@ name: CI Pipeline - Nextflix-Web-Appliation
 
 on:
   push:
-    branches: [main]
+    branches: [main, dev]
+    paths:
+      - 'frontend/**'
+      - 'backend/**'
   pull_request:
-    branches: [main]
+    branches: [main, dev]
+    paths:
+      - 'frontend/**'
+      - 'backend/**'
 
 jobs:
   build:
@@ -35,3 +41,14 @@ jobs:
       - name: Build Project
         run: npm run build
         working-directory: ${{ matrix.app }}
+
+  deploy-backend:
+    name: Deploy Backend to Render
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/dev'
+
+    steps:
+      - name: Trigger Render Deploy Hook
+        run: |
+          curl -X POST ${{ github.ref == 'refs/heads/main' && secrets.RENDER_DEPLOY_HOOK_MAIN || secrets.RENDER_DEPLOY_HOOK_DEV }}
